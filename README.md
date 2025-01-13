@@ -1,1 +1,2 @@
-# lrt-mrt-fare-matrix
+# **LRT - MRT FARE MATRIX 🚉**
+(ON GOING UPDATES DUE TO LRT-1 EXTENSION)
