@@ -191,7 +191,7 @@ int main()
                     break;
             }
         }
-        
+
     } while (cardType != 1 && cardType != 2);
    
     printf("----------------------------------------------------\n");
@@ -224,6 +224,7 @@ int main()
                 printf("\tInvalid. Please enter a valid status number.\n");
             }
         }
+        
     } while (passengerStatus < 1 || passengerStatus > 4);
 
     printf("----------------------------------------------------\n");
