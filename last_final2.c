@@ -164,6 +164,7 @@ int main()
                 printf("\tInvalid. Please enter a valid railway network line number.\n\n");
                 break;
         }
+        
     } while (railwayLine != 1 && railwayLine != 2 && railwayLine != 3);
 
     printf("----------------------------------------------------\n");
