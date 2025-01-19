@@ -191,6 +191,7 @@ int main()
                     break;
             }
         }
+        
     } while (cardType != 1 && cardType != 2);
    
     printf("----------------------------------------------------\n");
