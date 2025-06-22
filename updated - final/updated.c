@@ -99,7 +99,7 @@ const int LRT2Fares_single_journey[13][13] =
 
 const char MRT3Stations[13][20] = {"North Avenue", "Quezon Avenue", "GMA Kamuning", "Araneta", "Santolan-Annapolis", "Ortigas", "Shaw Boulevard", "Boni Avenue", "Guadalupe", "Buendia", "Ayala", "Magallanes", "Taft Avenue"};
 
-const int MRT3Fares_discounted[13][13] =    // discounts for PWDs, seniors, and students (no beep/stored value fare matrix)
+const int MRT3Fares_discounted[13][13] = // discounts for PWDs, seniors, and students (no beep/stored value fare matrix)
     {
         {0, 10, 10, 13, 13, 16, 16, 16, 19, 19, 19, 22, 22},
         {10, 0, 10, 10, 13, 13, 16, 16, 16, 19, 19, 19, 22},
@@ -113,8 +113,7 @@ const int MRT3Fares_discounted[13][13] =    // discounts for PWDs, seniors, and 
         {19, 19, 16, 16, 16, 13, 13, 10, 10, 0, 10, 10, 13},
         {19, 19, 19, 16, 16, 16, 13, 13, 10, 10, 0, 10, 10},
         {22, 19, 19, 19, 16, 16, 16, 13, 13, 10, 10, 0, 10},
-        {22, 22, 19, 19, 19, 16, 16, 16, 13, 13, 10, 10, 0}
-    };
+        {22, 22, 19, 19, 19, 16, 16, 16, 13, 13, 10, 10, 0}};
 
 const int MRT3Fares_single_journey[13][13] =
     {
@@ -208,17 +207,14 @@ int main()
         {
         case 1:
             printf("\t\t\t\t\tYou are currently riding LRT-1!\n");
-            wait_loading();
             break;
 
         case 2:
             printf("\t\t\t\t\tYou are currently riding LRT-2!\n");
-            wait_loading();
             break;
 
         case 3:
             printf("\t\t\t\t\tYou are currently riding MRT-3!\n");
-            wait_loading();
             break;
 
         case 4:
@@ -255,17 +251,14 @@ int main()
             {
             case 1:
                 printf("\t\t\t\t\tYour card: Stored Value (Beep) Fare Card\n");
-                wait_loading();
                 break;
 
             case 2:
                 printf("\t\t\t\t\tYour card: Single Journey Fare Card\n");
-                wait_loading();
                 break;
 
             default:
                 printf("\t\t\t\t\tInvalid. Please enter a valid card type number.\n");
-                wait_loading();
                 break;
             }
         }
