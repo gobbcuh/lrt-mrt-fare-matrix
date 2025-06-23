@@ -135,6 +135,7 @@ void exit_loading(double overallFare);
 void print_header();
 int read_int_input(const char *prompt, int min, int max);
 
+// main function
 int main()
 {
     int railwayLine, cardType, passengerStatus, initialStation, endStation;
