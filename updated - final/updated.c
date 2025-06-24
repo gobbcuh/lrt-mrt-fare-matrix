@@ -173,7 +173,7 @@ int main()
     intro_loading();
     print_header();
     printf("\t\t\t\t\t\t\t\t  [1] LRT-1     [3] MRT-3\n\t\t\t\t\t\t\t\t  [2] LRT-2     [4] EXIT\n");
-    printf("\t\t\t\t\tPlease choose your current Railway Network Line.\n");
+    printf("\n\t\t\t\t\tPlease choose your current Railway Network Line.\n");
 
     railwayLine = read_int_input("\t\t\t\t\tYour railway line: ", 1, 4);
     switch (railwayLine)
@@ -404,7 +404,7 @@ int read_int_input(const char *prompt, int min, int max)
         }
         else
         {
-            printf("\t\t\t\t\tInvalid input. Please enter a number between %d and %d.\n", min, max);
+            printf("\t\t\t\t\tInvalid input. Please enter a number between %d and %d.\n\n", min, max);
         }
     } while (!valid);
 
