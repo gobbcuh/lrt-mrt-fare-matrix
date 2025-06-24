@@ -135,7 +135,6 @@ void exit_loading(double overallFare);
 void print_header();
 int read_int_input(const char *prompt, int min, int max);
 
-// main function
 int main()
 {
     int railwayLine, cardType, passengerStatus, initialStation, endStation;
@@ -173,7 +172,7 @@ int main()
     intro_loading();
     print_header();
     printf("\t\t\t\t\t\t\t\t  [1] LRT-1     [3] MRT-3\n\t\t\t\t\t\t\t\t  [2] LRT-2     [4] EXIT\n");
-    printf("\n\t\t\t\t\tPlease choose your current Railway Network Line.\n");
+    printf("\t\t\t\t\tPlease choose your current Railway Network Line.\n");
 
     railwayLine = read_int_input("\t\t\t\t\tYour railway line: ", 1, 4);
     switch (railwayLine)
@@ -208,27 +207,46 @@ int main()
         break;
     }
 
-    print_header();
-    printf("\t\t\t\t\t\t\t\t  [1] PWD\n\t\t\t\t\t\t\t\t  [2] Senior Citizen\n\t\t\t\t\t\t\t\t  [3] Student\n\t\t\t\t\t\t\t\t  [4] Regular Passenger\n");
-    printf("\t\t\t\t\tPlease choose one that applies.\n");
-
-    passengerStatus = read_int_input("\t\t\t\t\tEnter your status: ", 1, 4);
-    switch (passengerStatus)
+    // Passenger status prompt based on railway line and card type
+    if ((railwayLine == 1 && cardType == 2) || (railwayLine == 2 && cardType == 2))
     {
-    case 1:
-    case 2:
-        passengerDiscount = 0.70;
-        printf("\t\t\t\t\tYou are eligible for a 30%% discount\n");
-        break;
-    case 3:
-        passengerDiscount = 0.80;
-        printf("\t\t\t\t\tYou are eligible for a 20%% discount\n");
-        break;
-    case 4:
-        passengerDiscount = 1.00;
-        printf("\t\t\t\t\tNo discount will be applied\n");
-        break;
+        print_header();
+        printf("\t\t\t\t\t\t\t\t  [1] PWD\n\t\t\t\t\t\t\t\t  [2] Senior Citizen\n\t\t\t\t\t\t\t\t  [3] Student\n");
+        printf("\t\t\t\t\tPlease choose one that applies.\n");
+
+        passengerStatus = read_int_input("\t\t\t\t\tEnter your status: ", 1, 3);
+        switch (passengerStatus)
+        {
+        case 1:
+        case 2:
+            passengerDiscount = 0.70;
+            printf("\t\t\t\t\tYou are eligible for a 30%% discount\n");
+            break;
+        case 3:
+            passengerDiscount = 0.80;
+            printf("\t\t\t\t\tYou are eligible for a 20%% discount\n");
+            break;
+        }
     }
+    else if (railwayLine == 3)
+    {
+        print_header();
+        printf("\t\t\t\t\t\t\t\t  [1] PWD\n\t\t\t\t\t\t\t\t  [2] Senior Citizen\n\t\t\t\t\t\t\t\t  [3] Student\n\t\t\t\t\t\t\t\t  [4] Regular Passenger\n");
+        printf("\t\t\t\t\tPlease choose one that applies.\n");
+
+        passengerStatus = read_int_input("\t\t\t\t\tEnter your status: ", 1, 4);
+        switch (passengerStatus)
+        {
+        case 1:
+        case 2:
+        case 3:
+            printf("\t\t\t\t\tYou are eligible for a discounted fare\n");
+            break;
+        case 4:
+            printf("\t\t\t\t\tNo discount will be applied\n");
+            break;
+        }
+    } // No passenger status prompt for LRT-1 or LRT-2 with Beep card
 
     print_header();
     if (railwayLine == 1)
@@ -250,7 +268,7 @@ int main()
 
         if (cardType == 1)
         {
-            overallFare = LRT1Fares_beep[initialStation][endStation] * passengerDiscount;
+            overallFare = LRT1Fares_beep[initialStation][endStation]; // No discount for Beep
         }
         else
         {
@@ -276,7 +294,7 @@ int main()
 
         if (cardType == 1)
         {
-            overallFare = LRT2Fares_beep[initialStation][endStation] * passengerDiscount;
+            overallFare = LRT2Fares_beep[initialStation][endStation]; // No discount for Beep
         }
         else
         {
@@ -404,7 +422,7 @@ int read_int_input(const char *prompt, int min, int max)
         }
         else
         {
-            printf("\t\t\t\t\tInvalid input. Please enter a number between %d and %d.\n\n", min, max);
+            printf("\t\t\t\t\tInvalid input. Please enter a number between %d and %d.\n", min, max);
         }
     } while (!valid);
 
