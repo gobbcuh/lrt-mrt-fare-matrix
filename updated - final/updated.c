@@ -207,14 +207,13 @@ int main()
         break;
     }
 
-    // Passenger status prompt based on railway line and card type
     if ((railwayLine == 1 && cardType == 2) || (railwayLine == 2 && cardType == 2))
     {
         print_header();
-        printf("\t\t\t\t\t\t\t\t  [1] PWD\n\t\t\t\t\t\t\t\t  [2] Senior Citizen\n\t\t\t\t\t\t\t\t  [3] Student\n");
+        printf("\t\t\t\t\t\t\t\t  [1] PWD\n\t\t\t\t\t\t\t\t  [2] Senior Citizen\n\t\t\t\t\t\t\t\t  [3] Student\n\t\t\t\t\t\t\t\t  [4] Regular Passenger\n");
         printf("\t\t\t\t\tPlease choose one that applies.\n");
 
-        passengerStatus = read_int_input("\t\t\t\t\tEnter your status: ", 1, 3);
+        passengerStatus = read_int_input("\t\t\t\t\tEnter your status: ", 1, 4);
         switch (passengerStatus)
         {
         case 1:
@@ -225,6 +224,10 @@ int main()
         case 3:
             passengerDiscount = 0.80;
             printf("\t\t\t\t\tYou are eligible for a 20%% discount\n");
+            break;
+        case 4:
+            passengerDiscount = 1.00;
+            printf("\t\t\t\t\tNo discount will be applied\n");
             break;
         }
     }
@@ -246,7 +249,7 @@ int main()
             printf("\t\t\t\t\tNo discount will be applied\n");
             break;
         }
-    } // No passenger status prompt for LRT-1 or LRT-2 with Beep card
+    }
 
     print_header();
     if (railwayLine == 1)
@@ -268,7 +271,7 @@ int main()
 
         if (cardType == 1)
         {
-            overallFare = LRT1Fares_beep[initialStation][endStation]; // No discount for Beep
+            overallFare = LRT1Fares_beep[initialStation][endStation];
         }
         else
         {
@@ -294,7 +297,7 @@ int main()
 
         if (cardType == 1)
         {
-            overallFare = LRT2Fares_beep[initialStation][endStation]; // No discount for Beep
+            overallFare = LRT2Fares_beep[initialStation][endStation];
         }
         else
         {
