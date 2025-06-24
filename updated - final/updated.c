@@ -297,7 +297,7 @@ int main()
 
         if (cardType == 1)
         {
-            overallFare = LRT2Fares_beep[initialStation][endStation];
+            overallFare = LRT2Fares_beep[initialStation][endStation]; // No discount for Beep
         }
         else
         {
@@ -431,3 +431,5 @@ int read_int_input(const char *prompt, int min, int max)
 
     return value;
 }
+
+// TO DO: add back option, acknowledgement line every after input of the user, loading bar before the printed station list
