@@ -432,4 +432,4 @@ int read_int_input(const char *prompt, int min, int max)
     return value;
 }
 
-// TO DO: add back option, acknowledgement line every after input of the user, loading bar before the printed station list
+// TO DO: add back option, acknowledgement line every after input of the user, loading bar before the printed station list.
